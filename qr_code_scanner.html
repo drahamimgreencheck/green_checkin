@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scan Your GreenCheck ID</title>
+    <script type="text/javascript" src="instascan.min.js"></script>
+  </head>
+  <style>
+    .background{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -100;
+    }
+    #scandiv {
+      width: 420px;
+      position: absolute;
+      top: 155px;
+      left: 415px;
+    }
+    .fill_container {
+      width: 100%;
+      height: 100%;
+    }
+    #successful_scan {
+      display: none;
+    }
+  </style>
+  <body>
+    <img src="/green_checkin/img/scan_id_mockup.png"
+      width="1250"
+      height="640"
+      class="background">
+    </img>
+    <div id="scandiv">
+      <img id="successful_scan" class="fill_container"/>
+      <video id="preview" class="fill_container"></video>
+    </div>
+
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({
+        captureImage: true,
+        video: document.getElementById('preview')
+      });
+      scanner.addListener('scan', function (content, image) {
+        console.log(content);
+        scanner.stop();
+        
+        let success = document.getElementById("successful_scan");
+        success.src = image;
+        success.style.display = "block";
+
+        let preview = document.getElementById("preview");
+        preview.style.display = "none";
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+    </script>
+    
+  </body>
+</html>
