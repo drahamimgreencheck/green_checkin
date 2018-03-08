@@ -1,25 +1,35 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
   <head>
-    <title>Successful Checkin</title>
+    <title>Scan Your GreenCheck ID</title>
+    <script type="text/javascript" src="instascan.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossoigin="anonymous"></script>
+
+      <link rel="stylesheet" type="text/css" href="css/checkin.css">
   </head>
-  <style>
-    .background{
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -100;
-    }
-    .fill_container {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+  
   <body>
-    <img src="/green_checkin/img/successful_scan_mockup.png"
-      width="1250"
-      height="640"
-      class="background">
+    <img src="/green_checkin/img/green-background.jpg" class="background">
     </img>
+
+    <img id=absolute_logo src="/green_checkin/img/small_logo_grey_bg.png">
+    </img>
+
+    <div id="hover_container">
+      <div class="sexy_header_text">
+        Scan Your GreenCheck ID Here
+      </div>
+      <div id="scan_div">
+        <img id="successful_scan" class="fill_container"/>
+        <video id="preview" class="fill_container"></video>
+      </div>
+      <div class="sexy_sub_text">
+        Use your smartphone to show your GreenCheck ID to the camera
+      </div>
+    </div>
+    
   </body>
 </html>
