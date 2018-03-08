@@ -17,14 +17,24 @@
     /*
     CHECK IN
     */
-    if($_GET["action"] === 'checkin' && !empty($_GET["id"])) {
+    $id = $_GET["id"];
+    if($_GET["action"] === 'checkin' && !empty($id)) {
 
-      $sql = "SELECT * FROM `user_table` WHERE id='{$_GET["id"]}'";
+      $sql = "SELECT * FROM `user_table` WHERE id='{$id}'";
 
       $userlist = $mysqli->query($sql);
       if (!empty($userlist)) {
-        while($row = $userlist->fetch_assoc()) {
-          echo $row["name"];
+        while($user = $userlist->fetch_assoc()) {
+          $checkins = $user["checkins"];
+          
+          $sql = "UPDATE `user_table` SET `checkins` = '" . ($checkins + 1) . "' WHERE `user_table`.`id` = '{$id}'";
+          $success = $mysqli->query($sql);
+
+          if (mysqli_connect_error()) {
+            die('Connect Error ('.mysqli_connect_errno().') '.mysqli_connect_error());
+          }
+
+          echo json_encode($user);
         }
       }
       else {
