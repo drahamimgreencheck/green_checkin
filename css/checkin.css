@@ -54,9 +54,16 @@ html{
   width: 20px;
   height: 30px;
 }
-.green_circle {
+#green_circle {
   width: 100px;
   height: 100px;
+  display: table;
+  margin: 0 auto;
+  padding: 50px;
+}
+#pos_barcode {
+  width: 200px;
+  height: 150px;
   display: table;
   margin: 0 auto;
   padding: 50px;
@@ -71,17 +78,18 @@ html{
   text-align: center;
   padding: 20px;
 }
-.sexy_sub_text {
+.pad_15 {
+  padding: 15px;
+}
+.little_sub_text {
   font: 15px arial, sans-serif;
   color: #868686;
   text-align: center;
-  padding: 15px;
 }
 .midsized_sub_text {
   font: 20px arial, sans-serif;
   color: #868686;
   text-align: center;
-  padding: 15px;
 }
 #successful_scan {
   display: none;

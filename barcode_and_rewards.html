@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Successful Scan</title>
+    <title>Barcode and Rewards</title>
     <script type="text/javascript" src="instascan.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -17,37 +17,22 @@
 
     <div id="hover_container">
       <div class="sexy_header_text">
-        Your GreenCheck ID has been accepted
+        Scan the barcode below to complete your transaction!
       </div>
       <div id=center_content_holder class="next_button_offset">
         <div id="viewing_port_div" class="grey_border">
-          <img src="/green_checkin/img/green_circle_check.png" id="green_circle">
-          <div id="thanks_name" class="sexy_header_text"></div>
+          <img src="/green_checkin/img/barcode_mockup.png" id="pos_barcode">
+          <div class="little_sub_text">Scan this barcode to add the GreenCheck item to the sales order</div>
         </div>
         <div class="next_button_container">
-          <a href="barcode_and_rewards.html">
+          <a href="qr_code_scanner.html">
             <div class="next_button grey_border">
               <img src="/green_checkin/img/next_arrow.png" class="next_arrow"/>
             </div>
           </a>
         </div>
       </div>
-      <div id="reward_text" class="midsized_sub_text pad_15"></div>
     </div>
-
-    <script type="text/javascript">
-      var urlParams = new URLSearchParams(window.location.search);
-      if(urlParams.has('name') && urlParams.has('checkins')) {
-        let name = urlParams.get('name');
-        let checkins = parseInt(urlParams.get('checkins'));
-
-        let thanks_name = document.getElementById("thanks_name");
-        thanks_name.innerHTML = "Thanks " + name + "!";
-
-        let reward_text = document.getElementById("reward_text");
-        reward_text.innerHTML = "You're " + (10 - (checkins % 10)) +" purchases away from reaching a reward";
-      }
-    </script>
     
   </body>
 </html>
