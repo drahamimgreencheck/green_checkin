@@ -23,12 +23,11 @@ html{
   width: 70px;
   height: 70px;
   background-color: white;
-  border: solid #000;
-  border-width: 1px;
   margin: -50px 0 0 0;
+  display: inline-block;
 }
 .next_button_offset {
-  left: 54px;
+  left: 70px;
 }
 #center_content_holder {
   height: 309px;
@@ -37,12 +36,15 @@ html{
   position: relative;
 }
 #viewing_port_div {
-  border-style: solid;
-  border-color: #c5c5c5;
-  border-width: 2px;
   width: 450px;
   height: 100%;
   display: inline-block;
+}
+.grey_border {
+  border-style: solid;
+  border-color: #c5c5c5;
+  border-width: 1px;
+  box-shadow: 2px 2px 10px #00000029;
 }
 .next_arrow {
   position: absolute;
@@ -51,9 +53,6 @@ html{
   margin: -15px -10px;
   width: 20px;
   height: 30px;
-}
-.next_button {
-  display: inline-block;
 }
 .green_circle {
   width: 100px;
