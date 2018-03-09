@@ -1,35 +1,51 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Scan Your GreenCheck ID</title>
+    <title>Successful Scan</title>
     <script type="text/javascript" src="instascan.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossoigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 
       <link rel="stylesheet" type="text/css" href="css/checkin.css">
   </head>
   
   <body>
-    <img src="/green_checkin/img/green-background.jpg" class="background">
-    </img>
-
-    <img id=absolute_logo src="/green_checkin/img/small_logo_grey_bg.png">
-    </img>
+    <img src="/green_checkin/img/green-background.jpg" class="background"/>
+    <img id=absolute_logo src="/green_checkin/img/small_logo_grey_bg.png"/>
 
     <div id="hover_container">
       <div class="sexy_header_text">
-        Scan Your GreenCheck ID Here
+        Your GreenCheck ID has been accepted
       </div>
-      <div id="scan_div">
-        <img id="successful_scan" class="fill_container"/>
-        <video id="preview" class="fill_container"></video>
+      <div id=center_content_holder class = "next_button_offset">
+        <div id="viewing_port_div">
+          <img src="/green_checkin/img/green_circle_check.png" class="green_circle">
+          <div id="thanks_name" class="sexy_header_text"></div>
+        </div>
+        <div class="next_button_container">
+          <div class="next_button">
+            <img src="/green_checkin/img/next_arrow.png" class="next_arrow"/>
+          </div>
+        </div>
       </div>
-      <div class="sexy_sub_text">
-        Use your smartphone to show your GreenCheck ID to the camera
-      </div>
+      <div id="reward_text" class="midsized_sub_text"></div>
     </div>
+
+    <script type="text/javascript">
+      var urlParams = new URLSearchParams(window.location.search);
+      if(urlParams.has('name') && urlParams.has('checkins')) {
+        let name = urlParams.get('name');
+        let checkins = parseInt(urlParams.get('checkins'));
+
+        let thanks_name = document.getElementById("thanks_name");
+        thanks_name.innerHTML = "Thanks " + name + "!";
+
+        let reward_text = document.getElementById("reward_text");
+        reward_text.innerHTML = "You're " + (10 - (checkins % 10)) +" purchases away from reaching a reward";
+      }
+    </script>
     
   </body>
 </html>

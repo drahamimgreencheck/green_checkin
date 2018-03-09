@@ -12,17 +12,14 @@
   </head>
 
   <body>
-    <img src="/green_checkin/img/green-background.jpg" class="background">
-    </img>
-
-    <img id=absolute_logo src="/green_checkin/img/small_logo_grey_bg.png">
-    </img>
+    <img src="/green_checkin/img/green-background.jpg" class="background"/>
+    <img id=absolute_logo src="/green_checkin/img/small_logo_grey_bg.png"/>
 
     <div id="hover_container">
       <div class="sexy_header_text">
         Scan Your GreenCheck ID Here
       </div>
-      <div id="scan_div">
+      <div id="viewing_port_div">
         <img id="successful_scan" class="fill_container"/>
         <video id="preview" class="fill_container"></video>
       </div>
@@ -58,7 +55,7 @@
           .then(
               function success(userInfo) {
                 let params = $.param(JSON.parse(userInfo));
-                //window.location.replace('successful_scan.html?' + params);
+                window.location.replace('successful_scan.html?' + params);
               },
               function failure(error) {
                   alert("Checkin failed for some reason! Are you sure you used a valid QR code?");
