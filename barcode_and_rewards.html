@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Barcode and Rewards</title>
+    <!-- Libraries -->
+    <script src="lib/JsBarcode.all.min.js"></script>
     <script type="text/javascript" src="instascan.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -19,20 +21,29 @@
       <div class="sexy_header_text">
         Scan the barcode below to complete your transaction!
       </div>
-      <div id=center_content_holder class="next_button_offset">
-        <div id="viewing_port_div" class="grey_border">
-          <img src="/green_checkin/img/barcode_mockup.png" id="pos_barcode">
-          <div class="little_sub_text">Scan this barcode to add the GreenCheck item to the sales order</div>
-        </div>
+      <div id="center_content_holder">
         <div class="next_button_container">
-          <a href="qr_code_scanner.html">
+          <a href="successful_scan.html">
             <div class="next_button grey_border">
-              <img src="/green_checkin/img/next_arrow.png" class="next_arrow"/>
+              <img src="/green_checkin/img/next_arrow_left.png" class="next_arrow"/>
             </div>
           </a>
         </div>
+        <div id="viewing_port_div" class="grey_border">
+          <svg id="pos_barcode"></svg>
+          <div class="little_sub_text">Scan this barcode to add the GreenCheck item to the sales order</div>
+        </div>
       </div>
     </div>
+
+    <script>
+      JsBarcode("#pos_barcode", "123456789012", {
+        format: "upc",
+        lineColor: "black",
+        displayValue: true,
+        fontOptions: "bold"
+      });
+    </script>
     
   </body>
 </html>
